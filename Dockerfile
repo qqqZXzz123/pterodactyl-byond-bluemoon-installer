@@ -5,7 +5,7 @@ RUN dpkg --add-architecture i386 \
     && apt-get upgrade -y \
     && apt-get install -y libmariadb3 libmariadbclient-dev libmariadb-dev mariadb-client \
     && useradd -d /home/container -m container \
-    && ln -s /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/x86_64-linux-gnu/libmariadb.so.3
+    && pwd
 
 USER        container
 ENV         USER=container HOME=/home/container
