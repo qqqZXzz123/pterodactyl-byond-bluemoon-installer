@@ -2,7 +2,7 @@ FROM beestation/byond:latest
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y libmariadb3 libmariadbclient-dev libmariadb-dev mariadb-client libmariadb-client-lgpl-dev \
+    && apt-get install -y libmariadb3 libmariadbclient-dev libmariadb-dev mariadb-client \
     && useradd -d /home/container -m container
 
 USER        container
