@@ -1,7 +1,8 @@
-FROM douglasparker/byond:latest
+FROM beestation/byond:latest
 
 RUN apt-get update \
     && apt-get upgrade -y \
+    && apt-get install -y libmariadb3 \
     && useradd -d /home/container -m container
 
 USER        container
