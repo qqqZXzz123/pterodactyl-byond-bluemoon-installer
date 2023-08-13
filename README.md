@@ -1,3 +1,5 @@
 # pterodactyl-byond
 
-I just used the [beestation/byond-docker](https://github.com/BeeStation/byond-docker) image and added the necessary stuff to make Byond work in Pterodactyl.
+Здесь переделанный под птеротактель образ докера от воласа
+
+Here is a remodeled pterotactel image of the docker from [volas](https://github.com/volas)
