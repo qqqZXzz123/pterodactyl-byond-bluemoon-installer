@@ -1,6 +1,6 @@
 #based on /tg/station byond image
 
-FROM i386/ubuntu:jammy
+FROM ubuntu:jammy
 
 ENV BYOND_MAJOR=514 \
     BYOND_MINOR=1583
