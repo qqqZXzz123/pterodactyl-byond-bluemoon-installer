@@ -24,7 +24,8 @@ RUN apt-get update \
 #   libmariadb-client-lgpl-dev \
     libmysqlclient-dev \
     python3 \
-    python3-pip\
+    python3-pip \
+    iproute\
     && useradd -d /home/container -m container
 
 RUN curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip \
