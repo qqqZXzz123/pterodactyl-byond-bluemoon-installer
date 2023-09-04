@@ -31,11 +31,10 @@ RUN apt-get update \
     gnupg \
     iproute2 \
     && pwd
-RUN curl -o setup_16.sh https://deb.nodesource.com/setup_16.x \
-&& bash ./setup_16.sh \
-&& apt-get update \
-&& apt-get install nodejs -y \
-&& node -v
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash \
+&& nvm --version \
+&& nvm install v16 \
+&& node --version
 
 
 RUN curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip \
