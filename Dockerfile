@@ -29,13 +29,15 @@ RUN apt-get update \
     python3 \
     python3-pip \
     gnupg \
+    build-essential \
     iproute2 \
-    && pwd
-RUN apt-get update
-RUN apt-get -y install curl gnupg
-RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
-RUN apt-get -y install nodejs
-RUN node -v
+    && curl --silent --location https://deb.nodesource.com/setup_16.x | bash - \
+    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && apt-get install -y nodejs yarn \
+    && node -v
+
 
 RUN curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip \
     && unzip byond.zip \
