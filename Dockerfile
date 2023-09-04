@@ -7,11 +7,11 @@ ENV BYOND_MAJOR=514 \
 
 ENV         DEBIAN_FRONTEND=noninteractive
 
+ENV NODE_MAJOR=16
+
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y curl \
-    && curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
     && apt-get install -y \
     nano \
     curl \
@@ -29,9 +29,15 @@ RUN apt-get update \
     libmysqlclient-dev \
     python3 \
     python3-pip \
-    nodejs \
+    gnupg \
     iproute2\
     && pwd
+RUN mkdir -p /etc/apt/keyrings \
+&& curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
+&& echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_${NODE_MAJOR}.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
+&& apt-get update \
+&& apt-get install nodejs -y
+
 
 RUN curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip \
     && unzip byond.zip \
