@@ -3,7 +3,7 @@
 FROM ubuntu:jammy
 
 ENV BYOND_MAJOR=514 \
-    BYOND_MINOR=1583
+    BYOND_MINOR=1582
 
 ENV         DEBIAN_FRONTEND=noninteractive
 
